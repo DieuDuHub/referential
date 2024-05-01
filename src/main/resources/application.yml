@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: referential
+  config:
+    import: optional:configserver:http://${CONFIG_SERVER_URL}
+  cloud:
+    config:
+      profile: dev
+
+
+server:
+  port: 8081
