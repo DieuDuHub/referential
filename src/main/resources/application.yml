@@ -2,7 +2,7 @@ spring:
   application:
     name: referential
   config:
-    import: optional:configserver:http://${CONFIG_SERVER_URL}
+    import: optional:configserver:http://${CONFIG_SERVER_URL}/config
   cloud:
     config:
       profile: dev

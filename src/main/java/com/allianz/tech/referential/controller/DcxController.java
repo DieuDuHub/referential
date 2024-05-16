@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/dcx")
+@RequestMapping("referential")
 public class DcxController {
 
     private final DcxService dcxService;
@@ -18,19 +18,19 @@ public class DcxController {
         this.dcxService = dcxService;
     }
 
-    @GetMapping
+    @GetMapping ("/dcx")
     public List<Dcx> getAllDcx() {
         return dcxService.getAllDcx();
     }
 
     // Add a new endpoint to get a dcx by id
-    @GetMapping("/{id}")
+    @GetMapping("/dcx/{id}")
     public Dcx getDcxById(@PathVariable Integer id) {
         return dcxService.getDcxById(id);
     }
 
     // create a new endpoint to create a dcx
-    @PostMapping
+    @PostMapping("/dcx")
     public Dcx createDcx(@RequestBody Dcx dcx) {
         return dcxService.save(dcx);
     }
