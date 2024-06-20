@@ -34,4 +34,10 @@ public class DcxController {
     public Dcx createDcx(@RequestBody Dcx dcx) {
         return dcxService.save(dcx);
     }
+
+    // create a new endppoint that return a string Hello world
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello World";
+    }
 }

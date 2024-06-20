@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class DcxService {
@@ -18,14 +20,15 @@ public class DcxService {
     }
 
     public List<Dcx> getAllDcx() {
-        return dcxRepository.findAll();
+        Iterable<Dcx> dcxs = dcxRepository.findAll();
+        return StreamSupport.stream(dcxs.spliterator(), false).collect(Collectors.toList());
     }
 
     public Dcx save(Dcx dcx) {
         return dcxRepository.save(dcx);
     }
 
-    public Dcx getDcxById(Integer id) {
+    public Dcx getDcxById(int id) {
         return dcxRepository.findById(id).orElse(null);
     }
 }
